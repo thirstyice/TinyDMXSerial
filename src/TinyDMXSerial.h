@@ -60,7 +60,10 @@ public:
 	void end();
 	TinyDMXSerial* setLoggingOutput(Print*);
 	TinyDMXSerial* setStartAddress(uint16_t startAddress);
+	TinyDMXSerial* resetUpdated() {updated = false; return this;}
 	unsigned long lastReceivedTime();
+	bool dataUpdated() {return updated;}
+
 
 	// Interrupt handlers
 	void didReceive(uint8_t data, uint8_t frameError);
@@ -83,4 +86,5 @@ private:
 	int16_t dataAddr = 0;
 	volatile unsigned long lastRecv = 0;
 	DMXRecvState recvState;
+	bool updated = false;
 };

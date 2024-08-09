@@ -74,6 +74,7 @@ void TinyDMXSerial::end() {
 	digitalWrite(pin, getPinValueForMode(DMXMode::Disabled));
 	dmxRunning = false;
 	currentInstance = nullptr;
+	updated = false;
 }
 
 TinyDMXSerial* TinyDMXSerial::setStartAddress(uint16_t startAddress) {
@@ -114,7 +115,10 @@ void TinyDMXSerial::didReceive(uint8_t data, uint8_t frameError) {
 		}
 	} else if (recvState.state == DMXRecvState::Data) {
 		if (dataAddr>=startAddr && dataAddr<=endAddr) {
-			dmxData[dataAddr-startAddr] = data;
+			if (dmxData[dataAddr-startAddr] != data) {
+				updated = true;
+				dmxData[dataAddr-startAddr] = data;
+			}
 		}
 		dataAddr++;
 		if (dataAddr >= 512) {
