@@ -17,7 +17,6 @@
 #if defined(DMXFORMAT) && defined(ARDUINO_ARCH_AVR)
 
 #include "Arduino.h"
-#include "DMXSerial.h"
 #include "avr/io.h"
 #include "avr/interrupt.h"
 

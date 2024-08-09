@@ -16,7 +16,6 @@
 #if defined(DMXFORMAT) && defined(ARDUINO_ARCH_MEGAAVR)
 
 #include "Arduino.h"
-#include "DMXSerial.h"
 #include "avr/io.h"
 
 
