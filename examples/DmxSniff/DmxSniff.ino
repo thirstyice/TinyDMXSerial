@@ -22,7 +22,7 @@
 // By default, all channels are captured and dumped, but the number of
 // channels and how to display them can be changed by modifying some
 // constants below.
-#include <DMXSerial.h>
+#include <TinyDMXSerial.h>
 
 // The serial port to use to dump data. Should be a different one from
 // the UART used by DMXSerial. On the 32u4-based Leonardo and Micro,
@@ -33,12 +33,19 @@
 
 #define SMARTSERIAL
 
+static constexpr const uint16_t channels = 512;
+static constexpr const uint16_t channels_per_line = 32;
+static constexpr const uint16_t channels_per_group = 8;
+
+uint8_t data[channels];
+TinyDMXSerial DMX(data, 2, channels);
+
 void setup()
 {
   Serial.begin(115200);
   while(!Serial) /* wait for Serial to be opened */;
 
-  DMXSerial.init(DMXReceiver);
+  DMX.begin(DMXMode::Receiver);
   Serial.println("DMX Sniffer...");
 
 #if defined(SMARTSERIAL)
@@ -49,14 +56,10 @@ void setup()
 #endif
 }
 
-static constexpr const uint16_t channels = 512;
-static constexpr const uint16_t channels_per_line = 32;
-static constexpr const uint16_t channels_per_group = 8;
-
 void loop()
 {
-  if (DMXSerial.dataUpdated()) {
-    DMXSerial.resetUpdated();
+  if (DMX.dataUpdated()) {
+    DMX.resetUpdated();
 #if defined(SMARTSERIAL)
     // For smarter terminals, reposition the cursor at the top left
     Serial.print(F("\x1b[1;1H"));
@@ -67,16 +70,13 @@ void loop()
     Serial.println();
 #endif
 
-    for (uint16_t i = 0; i < channels; ++i) {
-      // Channels are 1-based
-      uint16_t channel = i + 1;
-
+    for (uint16_t i = 0; i < channels; i++) {
       if (i % channels_per_line == 0) {
         Serial.println();
         // Prefix each line with the DMX channel number, adding spaces to align
-        if (channel < 100) Serial.write(' ');
-        if (channel < 10) Serial.write(' ');
-        Serial.print(channel);
+        if (i < 100) Serial.write(' ');
+        if (i < 10) Serial.write(' ');
+        Serial.print(i);
         Serial.print(": ");
       } else {
         // Print one space between channels, and two spaces between each group
@@ -86,7 +86,7 @@ void loop()
       }
 
       // Print the actual channel value, padding with a zero if needed
-      uint8_t value = DMXSerial.read(channel);
+      uint8_t value = data[i];
       if (value < 0x10) Serial.write('0');
       Serial.print(value, HEX);
     }
