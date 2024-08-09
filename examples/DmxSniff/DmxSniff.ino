@@ -38,7 +38,7 @@ static constexpr const uint16_t channels_per_line = 32;
 static constexpr const uint16_t channels_per_group = 8;
 
 uint8_t data[channels];
-TinyDMXSerial DMX(data, 2, channels);
+TinyDMXSerial DMX(data, channels);
 
 void setup()
 {

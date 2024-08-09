@@ -44,7 +44,7 @@ int BlueNow = 0;
 int state = 0;
 
 unsigned char data[3];
-TinyDMXSerial DMX(data, 2, 3);
+TinyDMXSerial DMX(data, 3);
 
 void setup() {
   DMX.begin(DMXMode::Sender);

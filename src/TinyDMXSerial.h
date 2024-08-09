@@ -46,8 +46,8 @@ class TinyDMXSerial {
 public:
 	TinyDMXSerial(
 		uint8_t* const buffer,
-		uint8_t modePin = 2,
 		uint16_t numChannels = 512,
+		uint8_t modePin = 2,
 		bool invertModePin = false
 	) :
 		dmxData(buffer),

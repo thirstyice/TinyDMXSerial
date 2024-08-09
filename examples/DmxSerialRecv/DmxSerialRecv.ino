@@ -31,7 +31,7 @@ const int BluePin = 5; // PWM output pin for Blue Light.
 const uint8_t numChannels = 3;
 
 uint8_t data[numChannels];
-TinyDMXSerial DMX(data, 2, numChannels);
+TinyDMXSerial DMX(data, numChannels);
 
 void setup() {
   DMX.begin(DMXMode::Receiver);

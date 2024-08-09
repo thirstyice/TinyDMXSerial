@@ -33,7 +33,7 @@ const int BluePin =   5;  // PWM output pin for Blue Light.
 #define DMXLENGTH (PIXELS*3)
 
 uint8_t data[DMXLENGTH];
-TinyDMXSerial DMX(data, 2, DMXLENGTH);
+TinyDMXSerial DMX(data, DMXLENGTH);
 
 // Initialize DMXSerial and neo pixel output
 void setup () {
