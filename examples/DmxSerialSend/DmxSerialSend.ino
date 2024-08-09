@@ -21,7 +21,7 @@
 // 01.12.2011 include file and extension changed to work with the Arduino 1.0 environment
 // - - - - -
 
-#include <DMXSerial.h>
+#include <TinyDMXSerial.h>
 
 // Constants for demo program
 
@@ -43,8 +43,11 @@ int BlueNow = 0;
 
 int state = 0;
 
+unsigned char data[3];
+TinyDMXSerial DMX(data, 2, 3);
+
 void setup() {
-  DMXSerial.init(DMXController);
+  DMX.begin(DMXMode::Sender);
 
   pinMode(RedPin, OUTPUT); // sets the digital pin as output
   pinMode(GreenPin, OUTPUT);
@@ -66,17 +69,17 @@ void loop() {
   } else {
     if (RedNow < RedLevel) RedNow++;
     if (RedNow > RedLevel) RedNow--;
-    DMXSerial.write(1, RedNow);
+    data[0]=RedNow;
     analogWrite(RedPin, RedNow);
 
     if (GreenNow < GreenLevel) GreenNow++;
     if (GreenNow > GreenLevel) GreenNow--;
-    DMXSerial.write(2, GreenNow);
+    data[1]=GreenNow;
     analogWrite(GreenPin, GreenNow);
 
     if (BlueNow < BlueLevel) BlueNow++;
     if (BlueNow > BlueLevel) BlueNow--;
-    DMXSerial.write(3, BlueNow);
+    data[2]=BlueNow;
     analogWrite(BluePin, BlueNow);
   } // if
 
