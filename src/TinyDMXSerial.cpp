@@ -1,3 +1,15 @@
+/*******************************************************************************
+* Project: TinyDMXSerial                                                       *
+* Filename: /src/TinyDMXSerial.cpp                                             *
+*                                                                              *
+* Created: 2024-08-09                                                          *
+* Author: thirstyice                                                           *
+*                                                                              *
+* Copyright (c) 2024 Tauran - https://github.com/thirstyice                    *
+* For details see TinyDMXSerial/LICENSE                                        *
+*                                                                              *
+*******************************************************************************/
+
 #include "TinyDMXSerial.h"
 
 #include "DMXSerialAdapter.h"

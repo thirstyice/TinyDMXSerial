@@ -2,6 +2,10 @@
 // DmxSniff.ino: Sample DMX application for receiving and displaying all DMX channels
 //
 // Copyright (c) 2017 by Matthijs Kooijman, http://www.stderr.nl
+//
+// TinyDMXSerial - DMXSerial backend with a revised frontend
+// Copyright (c) 2024 Tauran - https://github.com/thirstyice
+//
 // This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
 //
 // This example uses DMXSerial to receive DMX data, and then prints this

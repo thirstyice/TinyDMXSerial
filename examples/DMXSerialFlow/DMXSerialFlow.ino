@@ -2,11 +2,17 @@
 // DmxSerial - A hardware supported interface to DMX.
 // DMXSerialFlow.ino: Sample DMX application for sending 60 DMX values.
 // Copyright (c) 2014-2015 by Matthias Hertel, http://www.mathertel.de
+//
+// TinyDMXSerial - DMXSerial backend with a revised frontend
+// Copyright (c) 2024 Tauran - https://github.com/thirstyice
+//
 // This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
 //
 // Documentation and samples are available at http://www.mathertel.de/Arduino
 // 25.07.2011 creation of the DmxSerial library.
 // 01.07.2013 published version of the example applikation
+//
+// 2024-08-09 Implemented TinyDMXSerial frontend
 //
 // This is an example of how to send a more complex RGB based pattern of colors
 // over a DMX line.

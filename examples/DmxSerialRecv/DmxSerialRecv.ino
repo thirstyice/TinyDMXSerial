@@ -6,6 +6,10 @@
 // address 3 (blue) -> PWM Port 5
 //
 // Copyright (c) 2011-2015 by Matthias Hertel, http://www.mathertel.de
+//
+// TinyDMXSerial - DMXSerial backend with a revised frontend
+// Copyright (c) 2024 Tauran - https://github.com/thirstyice
+//
 // This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
 //
 // Documentation and samples are available at http://www.mathertel.de/Arduino
@@ -15,6 +19,9 @@
 // 01.12.2011 include file and extension changed to work with the Arduino 1.0 environment
 // 28.12.2011 changed to channels 1..3 (RGB) for compatibility with the DmxSerialSend sample.
 // 10.05.2012 added some lines to loop to show how to fall back to a default color when no data was received since some time.
+//
+// 2024-08-09 Implemented TinyDMXSerial frontend
+//
 // - - - - -
 
 #include <Arduino.h>

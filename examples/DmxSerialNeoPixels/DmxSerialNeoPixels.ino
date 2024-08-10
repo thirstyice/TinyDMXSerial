@@ -2,13 +2,19 @@
 // DmxSerialNeoPixels.ino: Sample DMX application for retrieving 3 DMX values:
 //
 // Copyright (c) 2016 by Matthias Hertel, http://www.mathertel.de
+//
+// TinyDMXSerial - DMXSerial backend with a revised frontend
+// Copyright (c) 2024 Tauran - https://github.com/thirstyice
+//
 // This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
 //
 // Documentation and samples are available at http://www.mathertel.de/Arduino
 // 06.09.2016 Creation of DmxSerialNeoPixels sample.
 // 27.08.2017 working with new DMXSerial DMXProbe mode.
 //            cleanup.
-
+//
+// 2024-08-09 Implemented TinyDMXSerial frontend
+//
 // - - - - -
 
 #include <Arduino.h>

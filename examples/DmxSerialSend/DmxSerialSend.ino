@@ -9,16 +9,22 @@
 // address 3 (blue) -> also available on PWM Port 5
 //
 // Copyright (c) 2011-2015 by Matthias Hertel, http://www.mathertel.de
+//
+// TinyDMXSerial - DMXSerial backend with a revised frontend
+// Copyright (c) 2024 Tauran - https://github.com/thirstyice
+//
 // This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
 //
 // Documentation and samples are available at http://www.mathertel.de/Arduino
-// The repository is on github : https://github.com/mathertel/DMXSerial
-// The repository on github is made available in the Arduino Library Manager.
+// The repository is on github : https://github.com/thirstyice/TinyDMXSerial
 //
 // 25.07.2011 creation of the DmxSerial library.
 // 10.09.2011 fully control the serial hardware register
 //            without using the Arduino Serial (HardwareSerial) class to avoid ISR implementation conflicts.
 // 01.12.2011 include file and extension changed to work with the Arduino 1.0 environment
+//
+// 2024-08-09 Implemented TinyDMXSerial frontend
+//
 // - - - - -
 
 #include <TinyDMXSerial.h>
