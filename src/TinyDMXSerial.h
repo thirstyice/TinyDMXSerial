@@ -75,6 +75,7 @@ public:
 	TinyDMXSerial* resetUpdated() {updated = false; return this;}
 	unsigned long lastReceivedTime();
 	bool dataUpdated() {return updated;}
+	DMXMode getCurrentMode() {return dmxMode;}
 
 
 	// Interrupt handlers
